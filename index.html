@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>I'm Sorry Lipps Candy 💗</title>
 
@@ -19,25 +20,28 @@
 
 body{
   min-height:100vh;
-  overflow:hidden;
+  overflow-y:auto;
+  overflow-x:hidden;
   background:#050816;
   display:flex;
   justify-content:center;
   align-items:center;
   position:relative;
   color:white;
+  padding:25px 0;
 }
 
 /* dreamy background */
 
 .bg{
-  position:absolute;
+  position:fixed;
   width:450px;
   height:450px;
   background:radial-gradient(circle,#ff2e88 0%,transparent 70%);
   filter:blur(120px);
   opacity:.28;
   animation:move 8s infinite alternate ease-in-out;
+  z-index:0;
 }
 
 .bg2{
@@ -49,6 +53,7 @@ body{
 }
 
 @keyframes move{
+
   from{
     transform:translateY(-20px) translateX(-10px);
   }
@@ -56,6 +61,7 @@ body{
   to{
     transform:translateY(40px) translateX(20px);
   }
+
 }
 
 /* main card */
@@ -63,7 +69,6 @@ body{
 .container{
   width:92%;
   max-width:420px;
-  height:92vh;
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.08);
   backdrop-filter:blur(25px);
@@ -77,6 +82,7 @@ body{
 }
 
 @keyframes fade{
+
   from{
     opacity:0;
     transform:translateY(20px);
@@ -86,6 +92,7 @@ body{
     opacity:1;
     transform:translateY(0px);
   }
+
 }
 
 /* profile */
@@ -108,6 +115,7 @@ body{
 }
 
 @keyframes float{
+
   from{
     transform:translateY(0px);
   }
@@ -115,6 +123,7 @@ body{
   to{
     transform:translateY(-8px);
   }
+
 }
 
 .profile h1{
@@ -124,7 +133,7 @@ body{
   letter-spacing:.5px;
 }
 
-/* apology */
+/* apology text */
 
 .sorry{
   margin-top:28px;
@@ -176,24 +185,37 @@ body{
   font-size:.88rem;
 }
 
+/* lyrics */
+
 .lyrics{
-  height:220px;
-  overflow:auto;
-  scroll-behavior:smooth;
+  height:240px;
+  overflow:hidden;
+  position:relative;
   mask-image:linear-gradient(to bottom,transparent,black 15%,black 85%,transparent);
 }
 
-.lyrics::-webkit-scrollbar{
-  display:none;
+.lyrics-inner{
+  animation:scrollLyrics 18s linear infinite;
+}
+
+@keyframes scrollLyrics{
+
+  0%{
+    transform:translateY(100%);
+  }
+
+  100%{
+    transform:translateY(-100%);
+  }
+
 }
 
 .lyrics p{
   font-size:2rem;
   line-height:1.35;
-  margin-bottom:26px;
+  margin-bottom:28px;
   font-weight:600;
   color:rgba(255,255,255,.18);
-  transition:.4s;
 }
 
 .lyrics .active{
@@ -265,6 +287,7 @@ button{
 }
 
 @keyframes pop{
+
   from{
     transform:scale(.7);
     opacity:0;
@@ -274,6 +297,7 @@ button{
     transform:scale(1);
     opacity:1;
   }
+
 }
 
 .popup-box h2{
@@ -335,25 +359,34 @@ button{
 
 </style>
 </head>
+
 <body>
 
 <div class="bg"></div>
 <div class="bg bg2"></div>
 
 <!-- SONG -->
-<audio autoplay loop>
+
+<audio id="bgMusic" loop>
   <source src="song.mp3" type="audio/mp3">
 </audio>
 
 <div class="container">
 
   <!-- PROFILE -->
+
   <div class="profile">
+
     <img src="lipps.jpg">
-    <h1>Lipps Candy</h1>
+
+    <h1>
+      Lipps Candy
+    </h1>
+
   </div>
 
   <!-- TEXT -->
+
   <div class="sorry">
 
     I know I annoyed you and maybe acted dumb 😭  
@@ -372,7 +405,8 @@ button{
 
   </div>
 
-  <!-- APPLE MUSIC STYLE -->
+  <!-- MUSIC CARD -->
+
   <div class="music-card">
 
     <div class="song-top">
@@ -380,90 +414,105 @@ button{
       <img src="lipps.jpg">
 
       <div class="song-info">
-        <h3>My Head & My Heart</h3>
-        <p>LIPPS CANDY 💗</p>
+
+        <h3>
+          My Head & My Heart
+        </h3>
+
+        <p>
+          LIPPS CANDY 💗
+        </p>
+
       </div>
 
     </div>
 
+    <!-- LYRICS -->
+
     <div class="lyrics">
 
-      <p class="active">
-        Baby, now and then
-      </p>
+      <div class="lyrics-inner">
 
-      <p>
-        I think about me now and who I could've been
-      </p>
+        <p class="active">
+          Baby, now and then
+        </p>
 
-      <p>
-        And then I picture all the perfect that we lived
-      </p>
+        <p>
+          I think about me now and who I could've been
+        </p>
 
-      <p>
-        Till I cut the strings on your tiny violin
-      </p>
+        <p>
+          And then I picture all the perfect that we lived
+        </p>
 
-      <p>
-        My mind's got a mind of its own right now
-      </p>
+        <p>
+          Till I cut the strings on your tiny violin
+        </p>
 
-      <p>
-        And it makes me hate me
-      </p>
+        <p>
+          My mind's got a mind of its own right now
+        </p>
 
-      <p>
-        I'll explode like a dynamite if I can't decide baby
-      </p>
+        <p>
+          And it makes me hate me
+        </p>
 
-      <p>
-        My headand my heart are torturing me yeah
-</p>
+        <p>
+          I'll explode like a dynamite if I can't decide baby
+        </p>
 
-<p>
-  Cause my mind and your arms I go to extremes yeah
-</p>
+        <p>
+          My head and my heart are torturing me yeah
+        </p>
 
-<p>
-  When angels tell me run and monsters call it love
-</p>
+        <p>
+          Cause my mind and your arms I go to extremes yeah
+        </p>
 
-<p>
-  My head and my heart are caught in-between
-</p>
+        <p>
+          When angels tell me run and monsters call it love
+        </p>
 
-</div>
+        <p>
+          My head and my heart are caught in-between
+        </p>
 
-<!-- BUTTONS -->
+      </div>
 
-<div class="buttons">
+    </div>
 
-  <button class="yes" onclick="forgive()">
-    YES 😭💖
-  </button>
+  </div>
 
-  <button class="no" onclick="showPopup()">
-    NO 🙄
-  </button>
+  <!-- BUTTONS -->
 
-</div>
+  <div class="buttons">
 
-<!-- FINAL MESSAGE -->
+    <button class="yes" onclick="forgive()">
+      YES 😭💖
+    </button>
 
-<div class="final" id="finalMessage">
+    <button class="no" onclick="showPopup()">
+      NO 🙄
+    </button>
 
-  <h2>
-    YAYYYYY 🌷💗
-  </h2>
+  </div>
 
-  <p>
-    knew your soft heart would forgive me eventually 😭  
-    now come here before i start missing you again.
-  </p>
+  <!-- FINAL MESSAGE -->
 
-  <img src="heart.jpg">
+  <div class="final" id="finalMessage">
 
-</div>
+    <h2>
+      YAYYYYY 🌷💗
+    </h2>
+
+    <p>
+      knew your soft heart would forgive me eventually 😭  
+      now come here before i start missing you again.
+    </p>
+
+    <img src="heart.jpg">
+
+  </div>
 
 </div>
 
@@ -500,11 +549,25 @@ button{
 
 <script>
 
+/* MUSIC */
+
+const music = document.getElementById("bgMusic");
+
+document.body.addEventListener("click", () => {
+
+  music.play();
+
+}, { once:true });
+
+/* POPUP */
+
 function showPopup(){
 
   document.getElementById("popup").style.display = "flex";
 
 }
+
+/* SECOND CHANCE */
 
 function secondChance(){
 
@@ -531,11 +594,19 @@ function secondChance(){
 
 }
 
+/* FORGIVE */
+
 function forgive(){
+
+  document.getElementById("popup").style.display = "none";
 
   document.querySelector(".buttons").style.display = "none";
 
   document.getElementById("finalMessage").style.display = "block";
+
+  document.getElementById("finalMessage").scrollIntoView({
+    behavior:"smooth"
+  });
 
 }
 
