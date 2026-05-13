@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>I'm Sorry Lipps Candy 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  background:#050816;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  color:white;
+}
+
+/* dreamy background */
+
+.bg{
+  position:absolute;
+  width:450px;
+  height:450px;
+  background:radial-gradient(circle,#ff2e88 0%,transparent 70%);
+  filter:blur(120px);
+  opacity:.28;
+  animation:move 8s infinite alternate ease-in-out;
+}
+
+.bg2{
+  width:350px;
+  height:350px;
+  right:-120px;
+  bottom:-80px;
+  animation-delay:2s;
+}
+
+@keyframes move{
+  from{
+    transform:translateY(-20px) translateX(-10px);
+  }
+
+  to{
+    transform:translateY(40px) translateX(20px);
+  }
+}
+
+/* main card */
+
+.container{
+  width:92%;
+  max-width:420px;
+  height:92vh;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(25px);
+  border-radius:35px;
+  padding:25px;
+  overflow:hidden;
+  position:relative;
+  z-index:5;
+  box-shadow:0 10px 40px rgba(0,0,0,.45);
+  animation:fade 1.3s ease;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0px);
+  }
+}
+
+/* profile */
+
+.profile{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:10px;
+}
+
+.profile img{
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,.15);
+  box-shadow:0 0 40px rgba(255,20,120,.35);
+  animation:float 3s infinite ease-in-out alternate;
+}
+
+@keyframes float{
+  from{
+    transform:translateY(0px);
+  }
+
+  to{
+    transform:translateY(-8px);
+  }
+}
+
+.profile h1{
+  margin-top:18px;
+  font-size:3rem;
+  font-weight:500;
+  letter-spacing:.5px;
+}
+
+/* apology */
+
+.sorry{
+  margin-top:28px;
+  text-align:center;
+  line-height:1.8;
+  font-size:.95rem;
+  color:#f0d8e4;
+}
+
+.highlight{
+  color:#ff6ba7;
+  font-weight:600;
+}
+
+/* music card */
+
+.music-card{
+  margin-top:30px;
+  padding:20px;
+  border-radius:28px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  overflow:hidden;
+  position:relative;
+}
+
+.song-top{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:22px;
+}
+
+.song-top img{
+  width:70px;
+  height:70px;
+  border-radius:18px;
+  object-fit:cover;
+}
+
+.song-info h3{
+  font-size:1rem;
+  font-weight:600;
+}
+
+.song-info p{
+  opacity:.65;
+  margin-top:4px;
+  font-size:.88rem;
+}
+
+.lyrics{
+  height:220px;
+  overflow:auto;
+  scroll-behavior:smooth;
+  mask-image:linear-gradient(to bottom,transparent,black 15%,black 85%,transparent);
+}
+
+.lyrics::-webkit-scrollbar{
+  display:none;
+}
+
+.lyrics p{
+  font-size:2rem;
+  line-height:1.35;
+  margin-bottom:26px;
+  font-weight:600;
+  color:rgba(255,255,255,.18);
+  transition:.4s;
+}
+
+.lyrics .active{
+  color:white;
+  text-shadow:0 0 15px rgba(255,255,255,.2);
+}
+
+/* buttons */
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:28px;
+}
+
+button{
+  border:none;
+  border-radius:100px;
+  padding:14px 25px;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+  font-weight:600;
+}
+
+.yes{
+  background:white;
+  color:#ff2d7a;
+  box-shadow:0 0 20px rgba(255,255,255,.2);
+}
+
+.yes:hover{
+  transform:scale(1.07);
+}
+
+.no{
+  background:rgba(255,255,255,.08);
+  color:white;
+  border:1px solid rgba(255,255,255,.15);
+}
+
+.no:hover{
+  background:rgba(255,255,255,.14);
+}
+
+/* popup */
+
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  padding:20px;
+}
+
+.popup-box{
+  width:100%;
+  max-width:360px;
+  background:#130511;
+  border-radius:28px;
+  padding:28px;
+  text-align:center;
+  animation:pop .4s ease;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+@keyframes pop{
+  from{
+    transform:scale(.7);
+    opacity:0;
+  }
+
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+.popup-box h2{
+  color:#ff5f9c;
+  margin-bottom:14px;
+}
+
+.popup-box p{
+  line-height:1.8;
+  color:#ffd7e5;
+  margin-bottom:22px;
+  font-size:.95rem;
+}
+
+.popup-box button{
+  width:100%;
+  background:#ff408d;
+  color:white;
+}
+
+/* final */
+
+.final{
+  display:none;
+  margin-top:25px;
+  text-align:center;
+  animation:fade 1s ease;
+}
+
+.final h2{
+  color:#ff7db3;
+  margin-bottom:12px;
+}
+
+.final p{
+  color:#ffe2ed;
+  line-height:1.7;
+  font-size:.92rem;
+}
+
+.final img{
+  width:90px;
+  margin-top:15px;
+}
+
+/* mobile */
+
+@media(max-width:430px){
+
+  .profile h1{
+    font-size:2.7rem;
+  }
+
+  .lyrics p{
+    font-size:1.8rem;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+
+<!-- SONG -->
+<audio autoplay loop>
+  <source src="song.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+  <!-- PROFILE -->
+  <div class="profile">
+    <img src="lipps.jpg">
+    <h1>Lipps Candy</h1>
+  </div>
+
+  <!-- TEXT -->
+  <div class="sorry">
+
+    I know I annoyed you and maybe acted dumb 😭  
+    but seeing you upset genuinely ruins my whole mood.
+
+    <br><br>
+
+    You're literally the kind of girl that makes my heart
+    panic over one dry text 💔
+
+    <br><br>
+
+    <span class="highlight">
+      So... can your pretty heart forgive me now? 🌷
+    </span>
+
+  </div>
+
+  <!-- APPLE MUSIC STYLE -->
+  <div class="music-card">
+
+    <div class="song-top">
+
+      <img src="lipps.jpg">
+
+      <div class="song-info">
+        <h3>My Head & My Heart</h3>
+        <p>LIPPS CANDY 💗</p>
+      </div>
+
+    </div>
+
+    <div class="lyrics">
+
+      <p class="active">
+        Baby, now and then
+      </p>
+
+      <p>
+        I think about me now and who I could've been
+      </p>
+
+      <p>
+        And then I picture all the perfect that we lived
+      </p>
+
+      <p>
+        Till I cut the strings on your tiny violin
+      </p>
+
+      <p>
+        My mind's got a mind of its own right now
+      </p>
+
+      <p>
+        And it makes me hate me
+      </p>
+
+      <p>
+        I'll explode like a dynamite if I can't decide baby
+      </p>
+
+      <p>
+        My headand my heart are torturing me yeah
+</p>
+
+<p>
+  Cause my mind and your arms I go to extremes yeah
+</p>
+
+<p>
+  When angels tell me run and monsters call it love
+</p>
+
+<p>
+  My head and my heart are caught in-between
+</p>
+
+</div>
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+  <button class="yes" onclick="forgive()">
+    YES 😭💖
+  </button>
+
+  <button class="no" onclick="showPopup()">
+    NO 🙄
+  </button>
+
+</div>
+
+<!-- FINAL MESSAGE -->
+
+<div class="final" id="finalMessage">
+
+  <h2>
+    YAYYYYY 🌷💗
+  </h2>
+
+  <p>
+    knew your soft heart would forgive me eventually 😭  
+    now come here before i start missing you again.
+  </p>
+
+  <img src="heart.jpg">
+
+</div>
+
+</div>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+  <div class="popup-box">
+
+    <h2>
+      EXCUSE ME?? 😭
+    </h2>
+
+    <p>
+      so i made an entire apology webpage,
+      added your favourite song,
+      stared at your picture while coding this,
+      AND YOU STILL PRESSED NO?? 💀💘
+
+      <br><br>
+
+      fine then...  
+      but if loving you this hard is illegal,
+      i'm serving life sentence happily 😩
+    </p>
+
+    <button onclick="secondChance()">
+      okay okay forgive me now 💗
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+
+function showPopup(){
+
+  document.getElementById("popup").style.display = "flex";
+
+}
+
+function secondChance(){
+
+  document.getElementById("popup").innerHTML = `
+
+    <div class="popup-box">
+
+      <h2>
+        One More Chance? 🥺
+      </h2>
+
+      <p>
+        pretty please?  
+        my ego already died making this webpage 😭
+      </p>
+
+      <button onclick="forgive()">
+        Fine, I forgive you 💖
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+function forgive(){
+
+  document.querySelector(".buttons").style.display = "none";
+
+  document.getElementById("finalMessage").style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>
