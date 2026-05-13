@@ -28,10 +28,10 @@ body{
   align-items:center;
   position:relative;
   color:white;
-  padding:25px 0;
+  padding:20px 0;
 }
 
-/* dreamy background */
+/* background */
 
 .bg{
   position:fixed;
@@ -64,7 +64,7 @@ body{
 
 }
 
-/* main card */
+/* card */
 
 .container{
   width:92%;
@@ -73,12 +73,11 @@ body{
   border:1px solid rgba(255,255,255,0.08);
   backdrop-filter:blur(25px);
   border-radius:35px;
-  padding:25px;
-  overflow:hidden;
+  padding:28px 24px;
   position:relative;
   z-index:5;
   box-shadow:0 10px 40px rgba(0,0,0,.45);
-  animation:fade 1.3s ease;
+  animation:fade 1.2s ease;
 }
 
 @keyframes fade{
@@ -101,7 +100,6 @@ body{
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-top:10px;
 }
 
 .profile img{
@@ -110,8 +108,9 @@ body{
   object-fit:cover;
   border-radius:50%;
   border:4px solid rgba(255,255,255,.15);
-  box-shadow:0 0 40px rgba(255,20,120,.35);
+  box-shadow:0 0 45px rgba(255,20,120,.4);
   animation:float 3s infinite ease-in-out alternate;
+  background:#111;
 }
 
 @keyframes float{
@@ -130,7 +129,7 @@ body{
   margin-top:18px;
   font-size:3rem;
   font-weight:500;
-  letter-spacing:.5px;
+  text-align:center;
 }
 
 /* apology text */
@@ -139,7 +138,7 @@ body{
   margin-top:28px;
   text-align:center;
   line-height:1.8;
-  font-size:.95rem;
+  font-size:.96rem;
   color:#f0d8e4;
 }
 
@@ -151,27 +150,25 @@ body{
 /* music card */
 
 .music-card{
-  margin-top:30px;
-  padding:20px;
+  margin-top:28px;
+  padding:18px;
   border-radius:28px;
   background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.06);
-  overflow:hidden;
-  position:relative;
 }
 
 .song-top{
   display:flex;
   align-items:center;
   gap:15px;
-  margin-bottom:22px;
 }
 
 .song-top img{
-  width:70px;
-  height:70px;
+  width:72px;
+  height:72px;
   border-radius:18px;
   object-fit:cover;
+  background:#111;
 }
 
 .song-info h3{
@@ -185,42 +182,44 @@ body{
   font-size:.88rem;
 }
 
-/* lyrics */
+/* glowing wave */
 
-.lyrics{
-  height:240px;
-  overflow:hidden;
-  position:relative;
-  mask-image:linear-gradient(to bottom,transparent,black 15%,black 85%,transparent);
+.wave{
+  margin-top:22px;
+  height:60px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:6px;
 }
 
-.lyrics-inner{
-  animation:scrollLyrics 18s linear infinite;
+.wave span{
+  width:6px;
+  border-radius:30px;
+  background:#ff4f97;
+  animation:bounce 1s infinite ease-in-out;
 }
 
-@keyframes scrollLyrics{
+.wave span:nth-child(1){height:20px;animation-delay:.1s;}
+.wave span:nth-child(2){height:38px;animation-delay:.2s;}
+.wave span:nth-child(3){height:25px;animation-delay:.3s;}
+.wave span:nth-child(4){height:45px;animation-delay:.4s;}
+.wave span:nth-child(5){height:28px;animation-delay:.5s;}
+.wave span:nth-child(6){height:40px;animation-delay:.6s;}
+.wave span:nth-child(7){height:22px;animation-delay:.7s;}
 
-  0%{
-    transform:translateY(100%);
+@keyframes bounce{
+
+  0%,100%{
+    transform:scaleY(.6);
+    opacity:.5;
   }
 
-  100%{
-    transform:translateY(-100%);
+  50%{
+    transform:scaleY(1.2);
+    opacity:1;
   }
 
-}
-
-.lyrics p{
-  font-size:2rem;
-  line-height:1.35;
-  margin-bottom:28px;
-  font-weight:600;
-  color:rgba(255,255,255,.18);
-}
-
-.lyrics .active{
-  color:white;
-  text-shadow:0 0 15px rgba(255,255,255,.2);
 }
 
 /* buttons */
@@ -256,10 +255,6 @@ button{
   background:rgba(255,255,255,.08);
   color:white;
   border:1px solid rgba(255,255,255,.15);
-}
-
-.no:hover{
-  background:rgba(255,255,255,.14);
 }
 
 /* popup */
@@ -322,7 +317,7 @@ button{
 
 .final{
   display:none;
-  margin-top:25px;
+  margin-top:28px;
   text-align:center;
   animation:fade 1s ease;
 }
@@ -335,12 +330,12 @@ button{
 .final p{
   color:#ffe2ed;
   line-height:1.7;
-  font-size:.92rem;
+  font-size:.95rem;
 }
 
 .final img{
   width:90px;
-  margin-top:15px;
+  margin-top:16px;
 }
 
 /* mobile */
@@ -348,11 +343,7 @@ button{
 @media(max-width:430px){
 
   .profile h1{
-    font-size:2.7rem;
-  }
-
-  .lyrics p{
-    font-size:1.8rem;
+    font-size:2.6rem;
   }
 
 }
@@ -365,7 +356,7 @@ button{
 <div class="bg"></div>
 <div class="bg bg2"></div>
 
-<!-- SONG -->
+<!-- MUSIC -->
 
 <audio id="bgMusic" loop>
   <source src="song.mp3" type="audio/mp3">
@@ -377,7 +368,7 @@ button{
 
   <div class="profile">
 
-    <img src="lipps.jpg">
+    <img src="./lipps.jpg" alt="Lipps Candy">
 
     <h1>
       Lipps Candy
@@ -411,7 +402,7 @@ button{
 
     <div class="song-top">
 
-      <img src="lipps.jpg">
+      <img src="./lipps.jpg" alt="Lipps Candy">
 
       <div class="song-info">
 
@@ -427,57 +418,17 @@ button{
 
     </div>
 
-    <!-- LYRICS -->
+    <!-- MUSIC WAVE -->
 
-    <div class="lyrics">
+    <div class="wave">
 
-      <div class="lyrics-inner">
-
-        <p class="active">
-          Baby, now and then
-        </p>
-
-        <p>
-          I think about me now and who I could've been
-        </p>
-
-        <p>
-          And then I picture all the perfect that we lived
-        </p>
-
-        <p>
-          Till I cut the strings on your tiny violin
-        </p>
-
-        <p>
-          My mind's got a mind of its own right now
-        </p>
-
-        <p>
-          And it makes me hate me
-        </p>
-
-        <p>
-          I'll explode like a dynamite if I can't decide baby
-        </p>
-
-        <p>
-          My head and my heart are torturing me yeah
-        </p>
-
-        <p>
-          Cause my mind and your arms I go to extremes yeah
-        </p>
-
-        <p>
-          When angels tell me run and monsters call it love
-        </p>
-
-        <p>
-          My head and my heart are caught in-between
-        </p>
-
-      </div>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
 
     </div>
 
@@ -497,7 +448,7 @@ button{
 
   </div>
 
-  <!-- FINAL MESSAGE -->
+  <!-- FINAL -->
 
   <div class="final" id="finalMessage">
 
@@ -603,10 +554,6 @@ function forgive(){
   document.querySelector(".buttons").style.display = "none";
 
   document.getElementById("finalMessage").style.display = "block";
-
-  document.getElementById("finalMessage").scrollIntoView({
-    behavior:"smooth"
-  });
 
 }
 
