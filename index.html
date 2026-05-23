@@ -1,1 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>I'm Sorry Pari 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  overflow-y:auto;
+  overflow-x:hidden;
+  background:#050816;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  color:white;
+  padding:20px 0;
+}
+
+/* background */
+
+.bg{
+  position:fixed;
+  width:450px;
+  height:450px;
+  background:radial-gradient(circle,#ff2e88 0%,transparent 70%);
+  filter:blur(120px);
+  opacity:.28;
+  animation:move 8s infinite alternate ease-in-out;
+  z-index:0;
+}
+
+.bg2{
+  width:350px;
+  height:350px;
+  right:-120px;
+  bottom:-80px;
+  animation-delay:2s;
+}
+
+@keyframes move{
+  from{
+    transform:translateY(-20px) translateX(-10px);
+  }
+  to{
+    transform:translateY(40px) translateX(20px);
+  }
+}
+
+/* card */
+
+.container{
+  width:92%;
+  max-width:420px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(25px);
+  border-radius:35px;
+  padding:28px 24px;
+  position:relative;
+  z-index:5;
+  box-shadow:0 10px 40px rgba(0,0,0,.45);
+  animation:fade 1.2s ease;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0px);
+  }
+}
+
+/* profile */
+
+.profile{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* Updated to display the full photo beautifully instead of a circle crop */
+.profile img{
+  max-width: 100%;
+  width: 240px;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 24px;
+  border: 4px solid rgba(255,255,255,.15);
+  box-shadow: 0 0 45px rgba(255,20,120,.4);
+  animation: float 3s infinite ease-in-out alternate;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 4px;
+}
+
+@keyframes float{
+  from{
+    transform:translateY(0px);
+  }
+  to{
+    transform:translateY(-8px);
+  }
+}
+
+.profile h1{
+  margin-top:18px;
+  font-size:3rem;
+  font-weight:500;
+  text-align:center;
+}
+
+/* apology text */
+
+.sorry{
+  margin-top:28px;
+  text-align:center;
+  line-height:1.8;
+  font-size:.96rem;
+  color:#f0d8e4;
+}
+
+.highlight{
+  color:#ff6ba7;
+  font-weight:600;
+}
+
+/* music card */
+
+.music-card{
+  margin-top:28px;
+  padding:18px;
+  border-radius:28px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.song-top{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.song-top img{
+  width:72px;
+  height:72px;
+  border-radius:18px;
+  object-fit:cover;
+  background:#111;
+}
+
+.song-info h3{
+  font-size:1rem;
+  font-weight:600;
+}
+
+.song-info p{
+  opacity:.65;
+  margin-top:4px;
+  font-size:.88rem;
+}
+
+/* glowing wave */
+
+.wave{
+  margin-top:22px;
+  height:60px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:6px;
+}
+
+.wave span{
+  width:6px;
+  border-radius:30px;
+  background:#ff4f97;
+  animation:bounce 1s infinite ease-in-out;
+}
+
+.wave span:nth-child(1){height:20px;animation-delay:.1s;}
+.wave span:nth-child(2){height:38px;animation-delay:.2s;}
+.wave span:nth-child(3){height:25px;animation-delay:.3s;}
+.wave span:nth-child(4){height:45px;animation-delay:.4s;}
+.wave span:nth-child(5){height:28px;animation-delay:.5s;}
+.wave span:nth-child(6){height:40px;animation-delay:.6s;}
+.wave span:nth-child(7){height:22px;animation-delay:.7s;}
+
+@keyframes bounce{
+  0%,100%{
+    transform:scaleY(.6);
+    opacity:.5;
+  }
+  50%{
+    transform:scaleY(1.2);
+    opacity:1;
+  }
+}
+
+/* buttons */
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:28px;
+}
+
+button{
+  border:none;
+  border-radius:100px;
+  padding:14px 25px;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+  font-weight:600;
+}
+
+.yes{
+  background:white;
+  color:#ff2d7a;
+  box-shadow:0 0 20px rgba(255,255,255,.2);
+}
+
+.yes:hover{
+  transform:scale(1.07);
+}
+
+.no{
+  background:rgba(255,255,255,.08);
+  color:white;
+  border:1px solid rgba(255,255,255,.15);
+}
+
+/* popup */
+
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  padding:20px;
+}
+
+.popup-box{
+  width:100%;
+  max-width:360px;
+  background:#130511;
+  border-radius:28px;
+  padding:28px;
+  text-align:center;
+  animation:pop .4s ease;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+@keyframes pop{
+  from{
+    transform:scale(.7);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+.popup-box h2{
+  color:#ff5f9c;
+  margin-bottom:14px;
+}
+
+.popup-box p{
+  line-height:1.8;
+  color:#ffd7e5;
+  margin-bottom:15px;
+  font-size:.95rem;
+}
+
+/* Pleading Image Zooming In & Out Animation */
+.pleading-img {
+  width: 130px;
+  height: auto;
+  border-radius: 20px;
+  margin: 10px auto 20px auto;
+  display: block;
+  box-shadow: 0 0 25px rgba(255, 46, 136, 0.4);
+  animation: zoomPulse 1.8s infinite alternate ease-in-out;
+}
+
+@keyframes zoomPulse {
+  0% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+.popup-box button{
+  width:100%;
+  background:#ff408d;
+  color:white;
+}
+
+/* final */
+
+.final{
+  display:none;
+  margin-top:28px;
+  text-align:center;
+  animation:fade 1s ease;
+}
+
+.final h2{
+  color:#ff7db3;
+  margin-bottom:12px;
+}
+
+.final p{
+  color:#ffe2ed;
+  line-height:1.7;
+  font-size:.95rem;
+}
+
+.final img{
+  width:90px;
+  margin-top:16px;
+}
+
+/* mobile */
+
+@media(max-width:430px){
+  .profile h1{
+    font-size:2.6rem;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+  <!-- PROFILE -->
+
+  <div class="profile">
+
+    <img src="./pari.jpg" alt="Pari">
+
+    <h1>
+      Pari 💗
+    </h1>
+
+  </div>
+
+  <!-- TEXT -->
+
+  <div class="sorry">
+
+    I know I annoyed you and maybe acted dumb 😭  
+    but seeing you upset genuinely ruins my whole mood.
+
+    <br><br>
+
+    You're literally the kind of girl that makes my heart
+    panic over one dry text 💔
+
+    <br><br>
+
+    <span class="highlight">
+      So... can your pretty heart forgive me now? 🌷
+    </span>
+
+  </div>
+
+  <!-- MUSIC CARD -->
+
+  <div class="music-card">
+
+    <div class="song-top">
+
+      <img src="./pari.jpg" alt="Pari">
+
+      <div class="song-info">
+
+        <h3>
+          My Head & My Heart
+        </h3>
+
+        <p>
+          PARI 💗
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- MUSIC WAVE -->
+
+    <div class="wave">
+
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </div>
+
+  </div>
+
+  <!-- BUTTONS -->
+
+  <div class="buttons">
+
+    <button class="yes" onclick="forgive()">
+      YES 😭💖
+    </button>
+
+    <button class="no" onclick="showPopup()">
+      NO 🙄
+    </button>
+
+  </div>
+
+  <!-- FINAL -->
+
+  <div class="final" id="finalMessage">
+
+    <h2>
+      YAYYYYY 🌷💗
+    </h2>
+
+    <p>
+      knew your soft heart would forgive me eventually 😭  
+      now come here before i start missing you again.
+    </p>
+
+    <img src="heart.jpg" alt="Heart">
+
+  </div>
+
+</div>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+  <div class="popup-box">
+
+    <h2>
+      EXCUSE ME?? 😭
+    </h2>
+
+    <p>
+      so i made an entire apology webpage,
+      added your favourite song,
+      stared at your picture while coding this,
+      AND YOU STILL PRESSED NO?? 💀💘
+
+      <br><br>
+
+      fine then...  
+      but if loving you this hard is illegal,
+      i'm serving life sentence happily 😩
+    </p>
+
+    <!-- Pleading picture loaded here -->
+    <img src="./pleading.jpg" class="pleading-img" alt="Pleading Form">
+
+    <button onclick="secondChance()">
+      okay okay forgive me now 💗
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+
+/* MUSIC */
+
+const music = document.getElementById("bgMusic");
+
+document.body.addEventListener("click", () => {
+  music.play();
+}, { once:true });
+
+/* POPUP */
+
+function showPopup(){
+  document.getElementById("popup").style.display = "flex";
+}
+
+/* SECOND CHANCE */
+
+function secondChance(){
+  document.getElementById("popup").innerHTML = `
+    <div class="popup-box">
+      <h2>
+        One More Chance? 🥺
+      </h2>
+
+      <p>
+        pretty please?  
+        my ego already died making this webpage 😭
+      </p>
+
+      <!-- Pleading picture zooms here too -->
+      <img src="./pleading.jpg" class="pleading-img" alt="Pleading Again">
+
+      <button onclick="forgive()">
+        Fine, I forgive you 💖
+      </button>
+    </div>
+  `;
+}
+
+/* FORGIVE */
+
+function forgive(){
+  document.getElementById("popup").style.display = "none";
+  document.querySelector(".buttons").style.display = "none";
+  document.getElementById("finalMessage").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
 
